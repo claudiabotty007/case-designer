@@ -22,4 +22,6 @@ jobs:
           b darwin amd64 case-studio-macos-intel
           cp index.html dist/case-studio.html
       - uses: softprops/action-gh-release@v2
-        with: { files: dist/* }
+        with:
+          files: dist/*
+          prerelease: ${{ contains(github.ref_name, '-') }}
