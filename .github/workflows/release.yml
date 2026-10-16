@@ -1,0 +1,25 @@
+name: release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with: { go-version: '1.24' }
+      - name: Build all platforms
+        run: |
+          mkdir dist
+          b(){ GOOS=$1 GOARCH=$2 CGO_ENABLED=0 go build -trimpath -ldflags "-s -w" -o "dist/$3" .; }
+          b linux amd64 case-studio-linux-amd64
+          b linux arm64 case-studio-linux-arm64
+          b windows amd64 case-studio-windows-amd64.exe
+          b darwin arm64 case-studio-macos-apple-silicon
+          b darwin amd64 case-studio-macos-intel
+          cp index.html dist/case-studio.html
+      - uses: softprops/action-gh-release@v2
+        with: { files: dist/* }
