@@ -29,8 +29,8 @@ func (t tool) shape() bool    { return t == toolLine || t == toolRect || t == to
 
 type fpt struct{ x, y float64 }
 
-func mid(a, b fpt) fpt          { return fpt{(a.x + b.x) / 2, (a.y + b.y) / 2} }
-func dist(a, b fpt) float64     { return math.Hypot(b.x-a.x, b.y-a.y) }
+func mid(a, b fpt) fpt             { return fpt{(a.x + b.x) / 2, (a.y + b.y) / 2} }
+func dist(a, b fpt) float64        { return math.Hypot(b.x-a.x, b.y-a.y) }
 func lerp(a, b fpt, t float64) fpt { return fpt{a.x + (b.x-a.x)*t, a.y + (b.y-a.y)*t} }
 
 // snapshot is the content of a region before an edit, for undo/redo.

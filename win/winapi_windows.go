@@ -278,15 +278,15 @@ type trackMouseEvent struct {
 type initCommonControlsEx struct{ size, icc uint32 }
 
 type actCtx struct {
-	cbSize           uint32
-	dwFlags          uint32
-	lpSource         *uint16
-	processorArch    uint16
-	langID           uint16
-	assemblyDir      *uint16
-	resourceName     uintptr
-	applicationName  *uint16
-	hModule          uintptr
+	cbSize          uint32
+	dwFlags         uint32
+	lpSource        *uint16
+	processorArch   uint16
+	langID          uint16
+	assemblyDir     *uint16
+	resourceName    uintptr
+	applicationName *uint16
+	hModule         uintptr
 }
 
 type iconInfo struct {

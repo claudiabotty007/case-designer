@@ -62,13 +62,13 @@ type app struct {
 	font, bold                 uintptr
 	children, headers          []uintptr
 
-	btn                         map[int]uintptr
-	tools                       [nTools]uintptr
-	hex, colorMore, caseMore    uintptr
-	filled, gloss, hint         uintptr
-	size, opacity, tol          slider
-	cur, pal, recent, caseSw    *swatches
-	presets                     *swatches
+	btn                      map[int]uintptr
+	tools                    [nTools]uintptr
+	hex, colorMore, caseMore uintptr
+	filled, gloss, hint      uintptr
+	size, opacity, tol       slider
+	cur, pal, recent, caseSw *swatches
+	presets                  *swatches
 
 	e         *engine
 	sc        *scene
