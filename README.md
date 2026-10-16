@@ -10,6 +10,14 @@ Download the binary for your system from the Releases page and run it, or open `
 
 ## Build
 
+**Windows (native app).** `win/` is a native Win32 port with its own window, controls and dialogs. It has no web server and no browser. It is pure Go with no cgo, so it builds on any OS:
+
+```sh
+GOOS=windows GOARCH=amd64 go build -trimpath -ldflags "-s -w -H windowsgui" -o case-studio.exe ./win
+```
+
+**Other platforms (browser-based).** The root `main.go` embeds `index.html` and serves it on localhost:
+
 ```sh
 go build -trimpath -ldflags "-s -w" -o case-studio .
 ```
